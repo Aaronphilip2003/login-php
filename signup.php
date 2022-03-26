@@ -1,7 +1,7 @@
 <?php
 session_start();
-include("connection.php");
-include('functions.php');
+require("connection.php");
+require('functions.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Something was posted
@@ -13,8 +13,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Generate a random numer as user_id
         $user_id = random_num(20);
         $query = "INSERT INTO users (user_id,user_name,password) values ('$user_id','$user_name','$password')";
-        echo 1;
         mysqli_query($con, $query);
+
+        // $ver = mysqli_query($con, $query);
+        // if (!$ver) {
+        //     echo mysqli_error($con);
+        //     die();
+        // } else {
+        //     echo "Query succesfully executed!";
+        // }
 
         header("Location: login.php");
         die;
