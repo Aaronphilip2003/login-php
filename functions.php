@@ -13,7 +13,7 @@ function check_login($con)
             return $user_data;
         }
     }
-    // redirect to login
+    // redirect to the login page
     header("Location: login.php");
     die;
 }
